@@ -40,11 +40,19 @@ public extension Dictionary where Key == String, Value == Any? {
 			guard let v = value else { return nil } // skip item if no value is set
 			return URLQueryItem(name: key, value: String(describing: v))
 		}
+
 		var urlComponents = URLComponents(string: base)!
 		urlComponents.queryItems = items
 		guard let encodedString = urlComponents.url else {
-			throw NetworkError.dataIsNotEncodable(self)
+            throw NetworkError.dataIsNotEncodable(self)
 		}
+
+        if base.isEmpty {
+            let absoluteString = encodedString.absoluteString
+            let index = absoluteString.index(after: absoluteString.startIndex)
+            return String(absoluteString[index...])
+        }
+
 		return encodedString.absoluteString
 	}
 	
