@@ -30,7 +30,7 @@ import Hydra
 
 /// Data operation, return a response via Promise
 open class DataOperation<ResponseProtocol>: OperationProtocol {
-	typealias T = ResponseProtocol
+    public typealias T = ResponseProtocol
 	
 	/// Request to send
 	public var request: RequestProtocol?
@@ -44,7 +44,7 @@ open class DataOperation<ResponseProtocol>: OperationProtocol {
 	///   - service: service to use
 	///   - retry: retry attempts in case of failure
 	/// - Returns: Promise
-	public func execute(in service: ServiceProtocol, retry: Int? = nil) -> Promise<ResponseProtocol> {
+	open func execute(in service: ServiceProtocol, retry: Int? = nil) -> Promise<ResponseProtocol> {
 		return Promise<ResponseProtocol>({ (r, rj, s) in
 			guard let rq = self.request else { // missing request
 				rj(NetworkError.missingEndpoint)
@@ -63,7 +63,7 @@ open class DataOperation<ResponseProtocol>: OperationProtocol {
 /// JSON Operation, return a response as JSON
 open class JSONOperation<Output>: OperationProtocol {
 	
-	typealias T = Output
+    public typealias T = Output
 	
 	/// Request
 	public var request: RequestProtocol?
@@ -84,7 +84,7 @@ open class JSONOperation<Output>: OperationProtocol {
 	///   - service: service to use
 	///   - retry: retry attempts
 	/// - Returns: Promise
-	public func execute(in service: ServiceProtocol, retry: Int? = nil) -> Promise<Output> {
+	open func execute(in service: ServiceProtocol, retry: Int? = nil) -> Promise<Output> {
 		return Promise<Output>({ (r, rj, s) in
 			guard let rq = self.request else { // missing request
 				rj(NetworkError.missingEndpoint)

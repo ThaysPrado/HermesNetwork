@@ -28,7 +28,7 @@ import Foundation
 import Hydra
 
 /// Operation Protocol
-protocol OperationProtocol {
+public protocol OperationProtocol {
 	associatedtype T
 	
 	/// Request
