@@ -35,7 +35,7 @@ public extension Dictionary where Key == String, Value == Any? {
 	/// - Returns: encoded string
 	/// - Throws: throw `.dataIsNotEncodable` if data cannot be encoded
 	public func urlEncodedString(base: String = "") throws -> String {
-		guard self.count > 0 else { return "" } // nothing to encode
+		guard self.count > 0 else { return base } // nothing to encode
 		let items: [URLQueryItem] = self.flatMap { (key,value) in
 			guard let v = value else { return nil } // skip item if no value is set
 			return URLQueryItem(name: key, value: String(describing: v))
