@@ -31,13 +31,13 @@ import SwiftyJSON
 public final class ServiceConfig: CustomStringConvertible, Equatable {
 	
 	/// Name of the server configuration. Tipically you can add it your environment name, ie. "Testing" or "Production"
-	private(set) var name: String
+	public private(set) var name: String
 	
 	/// This is the base host url (ie. "http://www.myserver.com/api/v2"
-	private(set) var url: URL
+	public private(set) var url: URL
 	
 	/// These are the global headers which must be included in each session of the service
-	private(set) var headers: HeadersDict = [:]
+	public private(set) var headers: HeadersDict = [:]
 	
 	/// Cache policy you want apply to each request done with this service
 	/// By default is `.useProtocolCachePolicy`.
