@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/malcommac/HermesNetwork.git", :tag => s.version.to_s }
   s.source_files  = "Sources/**/*"
   s.frameworks  = "Foundation"
-  s.dependency 'Alamofire'
+  s.dependency 'Alamofire', '~> 4.9.1'
   s.dependency 'SwiftyJSON'
   s.dependency 'HydraAsync'
 end
