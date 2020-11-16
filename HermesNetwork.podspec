@@ -18,5 +18,5 @@ Pod::Spec.new do |s|
   s.frameworks  = "Foundation"
   s.dependency 'Alamofire', '~> 4.9.1'
   s.dependency 'SwiftyJSON'
-  s.dependency 'HydraAsync'
+  s.dependency 'HydraAsync', '~> 2.0.2'
 end
